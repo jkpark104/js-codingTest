@@ -12,7 +12,7 @@ const INF = 1e9
 const distance = new Array(v + 1).fill(INF)
 const graph = new Array(v + 1).fill().map(() => [])
 
-for (i of data) {
+for (let i of data) {
   const[a, b] = i.split(' ').map(x => parseInt(x))
   graph[a].push(b)
 }
@@ -36,7 +36,7 @@ function bfs() {
   while (q.length != 0) {
     const now = q.shift()
     
-    for (next of graph[now]) {
+    for (let next of graph[now]) {
       if (distance[next] === INF) {
         distance[next] = distance[now] + 1
         if (distance[next] === target) {
