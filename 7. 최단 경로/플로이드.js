@@ -24,7 +24,7 @@ for (let i=1; i<v+1; i++) {
   graph[i][i] = 0
 }
 
-for (i of input) {
+for (let i of input) {
   const [a, b, c] = i.split(' ').map(Number)
   graph[a][b] = Math.min(graph[a][b], c)
 }

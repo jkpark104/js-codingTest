@@ -6,7 +6,7 @@ data.sort((a,b) => (a-b))
 let cnt = 0
 let ans = 0
 
-for (i of data) {
+for (let i of data) {
   cnt += 1
   
   if (cnt == i) {

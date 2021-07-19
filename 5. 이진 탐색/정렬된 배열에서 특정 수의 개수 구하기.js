@@ -1,10 +1,10 @@
-input = `
+const input = `
 1 1 2 2 2 2 3
 `.trim().split('\n')
 
 const [n, x] = [7,2]
 
-for (i of input) {
+for (let i of input) {
   data = i.split(' ').map(Number)
   const left_idx = binary_search_left(data, x)
   const right_idx = binary_search_right(data, x)

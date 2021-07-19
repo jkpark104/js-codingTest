@@ -3,7 +3,7 @@ const input_data = `
 7755
 `.trim().split('\n')
 
-for (data of input_data) {
+for (const data of input_data) {
   data = data.split('').map(x => parseInt(x))
   leftSum = sum(data.slice(0, data.length/2))
 

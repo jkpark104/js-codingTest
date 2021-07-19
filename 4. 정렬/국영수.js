@@ -16,13 +16,13 @@ Taewhan 50 60 90
 const n = 12
 const data = []
 
-for (i of input) {
+for (let i of input) {
   let [a,b,c,d] = i.split(' ')
   data.push([a, parseInt(b), parseInt(c), parseInt(d)])
 }
 
 data.sort((a,b) => (b[1]-a[1]||a[2]-b[2]||b[3]-a[3]||a[0]-b[0]))
 
-for (i of data) {
+for (let i of data) {
   console.log(i[0])
 }
