@@ -3,9 +3,9 @@ const input_data = `
 7755
 `.trim().split('\n')
 
-for (const data of input_data) {
+for (let data of input_data) {
   data = data.split('').map(x => parseInt(x))
-  leftSum = sum(data.slice(0, data.length/2))
+  const leftSum = sum(data.slice(0, data.length/2))
 
   if (sum(data)-leftSum === leftSum) {
     console.log('LUCKY')
@@ -16,7 +16,7 @@ for (const data of input_data) {
 
 function sum(data) {
   let sum = 0
-  for (el of data) {
+  for (let el of data) {
     sum += el
   }
   return sum
