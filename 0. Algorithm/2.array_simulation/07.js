@@ -5,16 +5,16 @@ function solution(nums) {
   const r = []
   const c = []
 
-  for (let i of nums) {
-    r.push(Math.min(...i))
-  }
 
   for (let i = 0; i < n; i++) {
-    let minVal = 1e9
+    let minValc = 1e9
+    let minValr = 1e9
     for (let j = 0; j < n; j++) {
-      minVal = Math.min(minVal, nums[j][i])
+      minValc = Math.min(minValc, nums[j][i])
+      minValr = Math.min(minValr, nums[i][j])
     }
-    c.push(minVal)
+    c.push(minValc)
+    r.push(minValr)
   }
 
   for (let i = 0; i < n; i++) {

@@ -1,13 +1,14 @@
 function solution(nums, m) {
-
   for (m; m > 0; m--) {
-    let tmp = []
+    // let tmp = []
     for (let i = 1; i < nums.length; i++) {
-      tmp.push(nums[i]-nums[i-1])
+      // tmp.push(nums[i] - nums[i - 1])
+      nums[i - 1] = nums[i] - nums[i - 1]
     }
-    nums = tmp
+    // nums = tmp
+    nums.pop()
   }
-  return nums;
+  return nums
 }
 
 const input_data = [
