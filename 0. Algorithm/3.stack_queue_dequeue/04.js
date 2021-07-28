@@ -5,11 +5,8 @@ function solution(s) {
   const stack = []
 
   for (let str of s) {
-    if (stack[stack.length - 1] === str) {
-      stack.pop()
-    } else {
-      stack.push(str)
-    }
+    if (stack[stack.length - 1] === str) stack.pop()
+    else stack.push(str)
   }
   return stack.join('')
 }

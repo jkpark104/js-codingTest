@@ -5,8 +5,10 @@ function solution(need, plan) {
   for (let n of need) q.push(n)
 
   for (let p of plan) {
-    if (p === q[0]) {
-      q.shift()
+    if (q.includes(p)) {
+      if (p === q[0]) {
+        q.shift()
+      } else return 'NO'
     }
   }
   return !q.length ? 'YES' : 'NO'
@@ -14,6 +16,7 @@ function solution(need, plan) {
 
 const input_data = [
   ['CBA', 'CBDAGE'],
+  ['CBA', 'CBDBAGE'],
   ['CBA', 'CBDBAGE'],
   ['CBA', 'CGEADB'],
 ]
