@@ -34,13 +34,13 @@
 ## 6. DP
 - 금광 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%EA%B8%88%EA%B4%91.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%EA%B8%88%EA%B4%91.js)
 - [정수 삼각형](https://www.acmicpc.net/problem/1932) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%EC%A0%95%EC%88%98%20%EC%82%BC%EA%B0%81%ED%98%95.js)
-- [퇴사](https://www.acmicpc.net/problem/14501) : [Python]() || [JavaScript]()
+- [퇴사](https://www.acmicpc.net/problem/14501) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%ED%87%B4%EC%82%AC.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/6.%20DP/%ED%87%B4%EC%82%AC.js)
 
 
 ## 7. 최단 경로
 - [플로이드](https://www.acmicpc.net/problem/11404) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%ED%94%8C%EB%A1%9C%EC%9D%B4%EB%93%9C.js)
 - 정확한 순위 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%EC%A0%95%ED%99%95%ED%95%9C%20%EC%88%9C%EC%9C%84%20.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%EC%A0%95%ED%99%95%ED%95%9C%20%EC%88%9C%EC%9C%84%20.js)
-- 화성 탐사 : [Python]() || [JavaScript]()
+- 화성 탐사 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%ED%99%94%EC%84%B1%20%ED%83%90%EC%82%AC.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/7.%20%EC%B5%9C%EB%8B%A8%20%EA%B2%BD%EB%A1%9C/%ED%99%94%EC%84%B1%20%ED%83%90%EC%82%AC.js)
 
 
 ## 8. 기타 그래프 이론

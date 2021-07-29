@@ -1,25 +1,25 @@
 "use strict"
 
 // function solution(nums, k) {
-//   const n = nums.length
-//   const q = []
-//   const ans = []
-//   let i = 0
-//   while (i < n) {
-//     if (q.length !== k) {
-//       q.push(nums[i])
-//     } else {
-//       ans.push(Math.min(...q))
-//       q.push(nums[i])
-//       q.shift()
-//     }
-//     i += 1
-//   }
-//   ans.push(Math.min(...q))
-//   return ans
-// }
+//   const answer = []
+//   const deque = []
 
-// -> O(n^2)임 -> wrong
+//   for (let i = 0; i < k - 1; i++) {
+//     while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
+//       deque.pop()
+//     }
+//     deque.push([nums[i], i])
+//   }
+//   for (let i = k - 1; i < nums.length; i++) {
+//     while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
+//       deque.pop()
+//     }
+//     deque.push([nums[i], i])
+//     answer.push(deque[0][0])
+//     if (deque[0][1] === i - k + 1) deque.shift()
+//   }
+//   return answer
+// }
 
 const input_data = [
   [
@@ -32,22 +32,23 @@ for (let data of input_data) {
 }
 
 function solution(nums, k) {
-  const answer = []
+  const ans = []
   const deque = []
 
   for (let i = 0; i < k - 1; i++) {
-    while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
+    while (deque.length && deque[deque.length - 1] > nums[i]) {
       deque.pop()
     }
     deque.push([nums[i], i])
   }
+
   for (let i = k - 1; i < nums.length; i++) {
-    while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
+    while (deque.length && deque[deque.length - 1][0] > nums[i]) {
       deque.pop()
     }
     deque.push([nums[i], i])
-    answer.push(deque[0][0])
-    if (deque[0][1] === i - k + 1) deque.shift()
+    ans.push(deque[0][0])
+    if (i - deque[0][1] + 1 === k) deque.shift()
   }
-  return answer
+  return ans
 }
