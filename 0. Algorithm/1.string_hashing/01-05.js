@@ -1,18 +1,18 @@
-function solution(s) {
+// function solution(s) {
 
-  s = s.split('')
-  const len = s.length
-  for (let i = 0; i < len; i++) {
-    s_copy = [...s]
-    s_copy.splice(i, 1)
-    
-    if (s_copy.join('') === s_copy.reverse().join('')) {
-      return 'YES'
-    }
-  }
+//   s = s.split('')
+//   const len = s.length
+//   for (let i = 0; i < len; i++) {
+//     s_copy = [...s]
+//     s_copy.splice(i, 1)
 
-  return 'NO'
-}
+//     if (s_copy.join('') === s_copy.reverse().join('')) {
+//       return 'YES'
+//     }
+//   }
+
+//   return 'NO'
+// }
 
 const input_data = [
   'abcbdcba',
