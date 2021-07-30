@@ -1,9 +1,5 @@
 "use strict"
 
-const {
-  has
-} = require("lodash")
-
 // function solution(nums, m) {
 //   let answer = 0
 //   let sum = 0

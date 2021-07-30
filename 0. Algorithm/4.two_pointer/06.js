@@ -17,6 +17,7 @@
 //   }
 //   return ans
 // }
+
 const input_data = [
   15,
   45678,
@@ -28,17 +29,32 @@ for (let data of input_data) {
   console.log(solution(data))
 }
 
+// function solution(n) {
+//   let answer = 0
+//   let cnt = 1
+//   n -= 1
+//   while (n > 0) {
+//     cnt += 1
+//     n -= cnt
+//     if (n % cnt === 0) {
+//       answer += 1
+//       console.log(n, cnt)
+//     }
+//   }
+//   return answer
+// }
+
 function solution(n) {
-  let answer = 0
+  let ans = 0
+
   let cnt = 1
   n -= 1
   while (n > 0) {
     cnt += 1
     n -= cnt
     if (n % cnt === 0) {
-      answer += 1
-      console.log(n, cnt)
+      ans += 1
     }
   }
-  return answer
+  return ans
 }
