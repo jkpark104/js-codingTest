@@ -1,25 +1,22 @@
 function solution(nums) {
   const ans = []
-  n = nums.length
+  const rMin = []
+  const cMin = []
 
-  const r = []
-  const c = []
-
-
-  for (let i = 0; i < n; i++) {
-    let minValc = 1e9
-    let minValr = 1e9
-    for (let j = 0; j < n; j++) {
-      minValc = Math.min(minValc, nums[j][i])
-      minValr = Math.min(minValr, nums[i][j])
+  for (let i = 0; i < nums.length; i++) {
+    let rVal = 1e9
+    let cVal = 1e9
+    for (let j = 0; j < nums.length; j++) {
+      rVal = Math.min(rVal, nums[i][j])
+      cVal = Math.min(cVal, nums[j][i])
     }
-    c.push(minValc)
-    r.push(minValr)
+    rMin.push(rVal)
+    cMin.push(cVal)
   }
 
-  for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (nums[i][j] === Math.min(r[i], c[j])) {
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = 0; j < nums.length; j++) {
+      if (nums[i][j] === Math.min(rMin[i], cMin[j])) {
         ans.push(nums[i][j])
       }
     }

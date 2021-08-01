@@ -1,30 +1,23 @@
 // function solution(nums) {
 //   let ans = 0
+//   let height = [1 , 1]
 
-//   let i = 0
-//   while (i < nums.length - 1) {
-//     let prev = nums[i]
-//     let end = i + 1
-//     while (end < nums.length && prev < nums[end]) {
-//       prev = nums[end]
-//       end += 1
+//   for (let i = 1; i < nums.length; i++) {
+//     if (nums[i - 1] < nums[i]) {
+//       height[0] += 1
+//     } else {
+//       ans = Math.max(ans, height[0])
+//       height[0] = 1
 //     }
-//     ans = Math.max(ans, end - i)
-//     i += 1
-//   }
 
-//   i = 0
-//   while (i < nums.length - 1) {
-//     let prev = nums[i]
-//     let end = i + 1
-//     while (end < nums.length && prev > nums[end]) {
-//       prev = nums[end]
-//       end += 1
+//     if (nums[i - 1] > nums[i]) {
+//       height[1] += 1
+//     } else {
+//       ans = Math.max(ans, height[1])
+//       height[1] = 1
 //     }
-//     ans = Math.max(ans, end - i)
-//     i += 1
 //   }
-
+//   ans = Math.max(ans, ...height)
 //   return ans
 // }
 
@@ -40,20 +33,20 @@ for (let data of input_data) {
 
 function solution(nums) {
   let ans = 0
-  let height = [1 , 1]
+  let height = [1, 1]
 
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[i - 1] < nums[i]) {
+  for (let i = 0; i < nums.length - 1; i++) {
+    if (nums[i] < nums[i + 1]) {
+      ans = Math.max(ans, height[1])
       height[0] += 1
-    } else {
+      height[1] = 1
+    } else if (nums[i] > nums[i + 1]) {
       ans = Math.max(ans, height[0])
       height[0] = 1
-    }
-    
-    if (nums[i - 1] > nums[i]) {
       height[1] += 1
     } else {
-      ans = Math.max(ans, height[1])
+      ans = Math.max(ans, ...height)
+      height[0] = 1
       height[1] = 1
     }
   }

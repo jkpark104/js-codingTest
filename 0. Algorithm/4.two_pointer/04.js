@@ -1,17 +1,21 @@
 "use strict"
 
-// function solution(nums, m) {
-//   let answer = 0
-//   let sum = 0
-//   let nH = new Map()
-//   for (let i = 0; i < nums.length; i++) {
-//     sum += nums[i]
-//     if (sum === m) answer += 1
-//     if (nH.has(sum - m)) answer += nH.get(sum - m)
-//     nH.set(sum, nH.get(sum) + 1 || 1)
-//   }
-//   return answer
-// }
+function solution(nums, m) {
+  const hash = new Map()
+
+  let sum = 0
+  let ans = 0
+  for (let num of nums) {
+    sum += num
+    if (sum === m) ans += 1
+    if (hash.has(sum - m)) {
+      ans += hash.get(sum - m)
+    }
+    hash.set(sum, hash.get(sum) + 1 || 1)
+  }
+  return ans
+}
+
 // 1 1개 ans 0
 // 3 1개 ans 1
 // 6 1개 ans 2
@@ -33,18 +37,4 @@ const input_data = [
 
 for (let data of input_data) {
   console.log(solution(data[0], data[1], data[0].length))
-}
-
-function solution(nums, m) {
-  let sum = 0
-  const hash = new Map()
-
-  let ans = 0
-  for (let num of nums) {
-    sum += num
-    if (sum === m) ans += 1
-    if (hash.get(sum - m)) ans += hash.get(sum - m)
-    hash.set(sum, hash.get(sum) + 1 || 1)
-  }
-  return ans
 }

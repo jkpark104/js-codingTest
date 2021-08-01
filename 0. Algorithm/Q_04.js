@@ -1,10 +1,12 @@
 function solution(apples, power, m) {
   const n = apples.length
+  // 사과개수
 
   let app = 0
   for (let i = 0; i < n; i++) {
     if (power[i]) app += apples[i]
   }
+  // 부스트를 안 써도 먹을 수 있는 사과 카운트
 
   let ans = app
   let end = 0
@@ -17,6 +19,7 @@ function solution(apples, power, m) {
     if (!power[start]) app -= apples[start]
   }
   return ans
+  // 투 포인터를 밀면서 부스트 길이 m 만큼 양쪽 인덱스 이동하면서 최댓값을 구함
 }
 
 

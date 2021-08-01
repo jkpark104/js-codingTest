@@ -1,19 +1,21 @@
 "use strict"
 
-// function solution(nums, k) {
-//   let res = []
-//   let val = 0
-//   let end = 0
-//   for (let start = 0; start <= nums.length - k; start++) {
-//     while (end < nums.length && end - start < k) {
-//       val += nums[end]
-//       end += 1
-//     }
-//     res.push(val)
-//     val -= nums[start]
-//   }
-//   return res.reduce((acc, cur) => Math.max(acc, cur))
-// }
+function solution(nums, k) {
+  const n = nums.length
+
+  let ans = 0
+  let end = 0
+  let sum = 0
+  for (let start = 0; start < n; start++) {
+    while (end < n && (end - start) < k) {
+      sum += nums[end]
+      end += 1
+    }
+    ans = Math.max(ans, sum)
+    sum -= nums[start]
+  }
+  return ans
+}
 
 const input_data = [
   [
@@ -29,17 +31,4 @@ const input_data = [
 
 for (let data of input_data) {
   console.log(solution(data[0], data[1]))
-}
-
-function solution(nums, k) {
-  const n = nums.length
-  let sum = 0
-  for (let i = 0; i < k; i++) sum += nums[i]
-  let answer = sum
-  for (let i = k; i < n - (k - 1); i++) {
-    // i < n === i < n-k+1
-    sum += (nums[i] - nums[i - k])
-    answer = Math.max(answer, sum)
-  }
-  return answer
 }

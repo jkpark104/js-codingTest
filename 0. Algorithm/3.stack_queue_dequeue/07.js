@@ -1,25 +1,22 @@
 "use strict"
 
-// function solution(nums, k) {
-//   const answer = []
-//   const deque = []
+function solution(nums, k) {
+  const ans = []
+  const stack = []
 
-//   for (let i = 0; i < k - 1; i++) {
-//     while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
-//       deque.pop()
-//     }
-//     deque.push([nums[i], i])
-//   }
-//   for (let i = k - 1; i < nums.length; i++) {
-//     while (deque.length > 0 && deque[deque.length - 1][0] > nums[i]) {
-//       deque.pop()
-//     }
-//     deque.push([nums[i], i])
-//     answer.push(deque[0][0])
-//     if (deque[0][1] === i - k + 1) deque.shift()
-//   }
-//   return answer
-// }
+  for (let i = 0; i < k - 1; i++) {
+    while (stack.length && stack[stack.length - 1][0] > nums[i]) stack.pop()
+    stack.push([nums[i], i])
+  }
+
+  for (let i = k - 1; i < nums.length; i++) {
+    while (stack.length && stack[stack.length - 1][0] > nums[i]) stack.pop()
+    stack.push([nums[i], i])
+    ans.push(stack[0][0])
+    if (i - stack[0][1] === k - 1) stack.shift()
+  }
+  return ans
+}
 
 const input_data = [
   [
@@ -31,24 +28,3 @@ for (let data of input_data) {
   console.log(solution(data[0], data[1]))
 }
 
-function solution(nums, k) {
-  const ans = []
-  const deque = []
-
-  for (let i = 0; i < k - 1; i++) {
-    while (deque.length && deque[deque.length - 1] > nums[i]) {
-      deque.pop()
-    }
-    deque.push([nums[i], i])
-  }
-
-  for (let i = k - 1; i < nums.length; i++) {
-    while (deque.length && deque[deque.length - 1][0] > nums[i]) {
-      deque.pop()
-    }
-    deque.push([nums[i], i])
-    ans.push(deque[0][0])
-    if (i - deque[0][1] + 1 === k) deque.shift()
-  }
-  return ans
-}

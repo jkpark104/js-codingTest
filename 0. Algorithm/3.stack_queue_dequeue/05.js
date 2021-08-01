@@ -1,27 +1,18 @@
 "use strict"
 
 function solution(n, k) {
-  // const q = []
-  // for (let i = 1; i < n + 1; i++) {
-  //   q.push(i)
-  // }
-  // const q = new Array(n).fill().map((el, idx) => idx + 1)
-  const q = Array.from({length: n}, (v, i) => i + 1)
-  // let idx = 1
-  while (q.length !== 1) {
-    // if (idx === k) {
-    //   q.shift()
-    //   idx = 0
-    // } else {
-    //   q.push(q.shift())
-    // }
-    // idx += 1
-    for (let i = k; i > 1; i--) {
-      q.push(q.shift())
-    }
-    q.shift()
-  }
+  const q = new Array(n).fill().map((el, idx) => idx + 1)
 
+  let i = 1
+  while (q.length !== 1) {
+    const now = q.shift()
+    if (i === k) {
+      i = 1
+    } else {
+      i += 1
+      q.push(now)
+    }
+  }
   return q[0]
 }
 

@@ -52,22 +52,21 @@ class maxHeap {
   }
 }
 
-// function solution(nums) {
-//   const chk = new Array(365).fill(0)
-//   nums = nums.sort((a, b) => (b[0] - a[0]) || (b[1] - a[1]))
-
-//   let ans = 0
-//   for (let [cost, day] of nums) {
-//     while (chk[day] !== 0 && day > 1) {
-//       day -= 1
-//     }
-//     if (chk[day] === 0) {
-//       chk[day] = 1
-//       ans += cost
-//     }
-//   }
-//   return ans
-// }
+function solution(nums) {
+  nums.sort((a, b) => (b[1] - a[1] || b[0] - a[0]))
+  let maxDay = nums[0][1]
+  const heap = new maxHeap()
+  let idx = 0
+  let ans = 0
+  for (maxDay; maxDay > 0; maxDay--) {
+    while (idx < nums.length && nums[idx][1] === maxDay) {
+      heap.insert(nums[idx][0])
+      idx += 1
+    }
+    if (heap.size()) ans += heap.get()
+  }
+  return ans
+}
 
 console.log(solution([
   [50, 2],
@@ -83,19 +82,3 @@ console.log(solution([
   [20, 1],
   [10, 1],
 ]))
-
-function solution(nums) {
-  nums.sort((a,b)=>(b[1]-a[1]))
-  let maxDay = nums[0][1]
-  const heap = new maxHeap()
-  let ans = 0
-  let idx = 0
-  for (maxDay; maxDay > 0; maxDay--) {
-    while (idx < nums.length && nums[idx][1] === maxDay) {
-      heap.insert(nums[idx][0])
-      idx += 1
-    }
-    if (heap.size()) ans += heap.get()
-  }
-  return ans
-}
