@@ -15,3 +15,15 @@ function solution(s) {
   }
   return ans
 }
+
+// 정렬
+const sort_func = (a, b) => {
+  if (a.charCodeAt() >= 97 && b.charCodeAt() >= 97) return 0
+  else if (a.charCodeAt() < 97 && b.charCodeAt() >= 97) return 1
+  else if (a.charCodeAt() >= 97 && b.charCodeAt() < 97) return -1
+  else return 0
+}
+
+const str = 'aAcdCbB'.split('')
+console.log('A'.charAt())
+console.log(str.sort((a, b) => sort_func(a, b) || a.charCodeAt() - b.charCodeAt()))
