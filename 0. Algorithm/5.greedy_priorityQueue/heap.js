@@ -18,7 +18,7 @@ class maxHeap {
       pos = parseInt(pos / 2)
     }
     this.heap[pos] = tmp
-  }
+  } 
 
   get() {
     if (this.size() === 1) return this.heap.pop()
@@ -51,3 +51,9 @@ class maxHeap {
     }
   }
 }
+
+const hash = new maxHeap()
+hash.insert(6)
+hash.insert(7)
+
+hash.show()

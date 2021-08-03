@@ -44,3 +44,47 @@ function solution(n, f) {
 
 console.log(solution(4, 16))
 console.log(solution(5, 50))
+
+// 콤비네이션 안 부르고 이항 계수 만들어서 풀어보기
+// for (let i = 1; i < n; i++) {
+// b.push(b[i-1]*(n-i)/i)
+// }
+
+// function solution(n, f) {
+//   function com(n, r) {
+//     if (dp[n][r]) return dp[n][r]
+//     if (n === r || r === 0) return 1
+//     else {
+//       return dp[n][r] = dfs(n - 1, r - 1) + dfs(n - 1, r)
+//     }
+//   }
+
+//   function dfs(k, sum) {
+//     if (k === n) {
+//       if (sum === f) {
+//         ans = [...p]
+//         flag = true
+//       }
+//     } else {
+//       for (let i = 1; i < n + 1; i++) {
+//         if (!chk[i]) {
+//           chk[i] = 1
+//           p.push(i)
+//           dfs(k + 1, sum + (p[p.length - 1] * b[k]))
+//           chk[i] = 0
+//           p.pop()
+//         }
+//       }
+//     }
+//   }
+//   const dp = new Array(n+1).fill().map(() => new Array(n+1).fill(0))
+//   const chk = new Array(n + 1).fill(0)
+//   const p = []
+//   let flag = false
+//   const b = []
+//   for (let i = 0; i < n; i++) {
+//     b.push(com(n, i))
+//   }
+//   console.log(b)
+//   // dfs(0, 0)
+// }

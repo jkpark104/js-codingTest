@@ -2,14 +2,10 @@
 
 function solution(n, r) {
   function dfs(n, r) {
-    if (r === 0) return dp[n][0] = 1
-    else if (r === 1) return dp[n][1] = n
-    else if (n < 1) return 0
+    if (dp[n][r]) return dp[n][r]
+    if (n === r || r === 0) return 1
     else {
-      if (!dp[n][r]) {
-        dp[n][r] = dfs(n - 1, r - 1) + dfs(n - 1, r)
-      }
-      return dp[n][r]
+      return dp[n][r] = dfs(n - 1, r - 1) + dfs(n - 1, r)
     }
   }
   const dp = new Array(n + 1).fill().map(() => new Array(r + 1).fill(0))

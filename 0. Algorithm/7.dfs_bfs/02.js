@@ -1,21 +1,26 @@
 function solution(n, edges) {
-  function dfs(pos) {
-    if (pos === n) {
+  const path = [1]
+
+  function dfs(v) {
+    if (v === n) {
       ans += 1
+      console.log(path)
     } else {
-      for (let next of graph[pos]) {
-        if (!chk[next]) {
-          chk[next] = true
-          dfs(next)
-          chk[next] = false
+      for (let i = 1; i < n + 1; i++) {
+        if (graph[v][i] && !chk[i]) {
+          chk[i] = true
+          path.push(i)
+          dfs(i)
+          path.pop()
+          chk[i] = false
         }
       }
     }
   }
 
-  const graph = new Array(n + 1).fill().map(() => new Array())
+  const graph = new Array(n + 1).fill().map(() => new Array(n + 1).fill(0))
   for (let [x, y] of edges) {
-    graph[x].push(y)
+    graph[x][y] = 1
   }
 
   const chk = new Array(n + 1).fill(false)
