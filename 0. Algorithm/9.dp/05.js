@@ -21,7 +21,7 @@ console.log(solution([
   [5, 12],
   [3, 8],
   [6, 14],
-  [4, 7]
+  [4, 7],
 ], 11))
 
 function solution(nums, m) {
