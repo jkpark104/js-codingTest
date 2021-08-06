@@ -29,11 +29,13 @@ function solution(s1, s2) {
   }
 
   for (let x of s2) {
+    console.log(sH)
     if (!sH.has(x) || sH.get(x) === 0) {
       return 'NO'
     } else {
       sH.set(x, sH.get(x) - 1)
     }
   }
+  console.log(sH)
   return 'YES'
 }

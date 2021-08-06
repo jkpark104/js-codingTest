@@ -49,6 +49,7 @@ function solution(nums) {
       d = 0
     }
   }
+
   d = 0
   for (let i = n - 1; i > -1; i--) {
     if(!nums[i]) {

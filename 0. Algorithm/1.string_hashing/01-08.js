@@ -1,22 +1,22 @@
-function solution(words) {
-  const sample = words.sort((a, b) => b.length - a.length)
-  const ans = []
+// function solution(words) {
+//   const sample = words.sort((a, b) => b.length - a.length)
+//   const ans = []
 
-  for (let i = 0; i < sample[0].length; i++) {
-    let cnt = false
-    for (let j = 1; j < sample.length; j++) {
-      if (sample[0][i] === sample[j][i]) {
-        ans.push(sample[0][i])
-        cnt = true
-        break
-      }
-    }
-    if (!cnt) {
-      ans.push(sample[0][i])
-      return ans.length
-    }
-  }
-}
+//   for (let i = 0; i < sample[0].length; i++) {
+//     let cnt = false
+//     for (let j = 1; j < sample.length; j++) {
+//       if (sample[0][i] === sample[j][i]) {
+//         ans.push(sample[0][i])
+//         cnt = true
+//         break
+//       }
+//     }
+//     if (!cnt) {
+//       ans.push(sample[0][i])
+//       return ans.length
+//     }
+//   }
+// }
 
 const input_data = [
   ["seeasue", "sesseysu", "semeas"],
