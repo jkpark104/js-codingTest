@@ -12,27 +12,28 @@
 - [럭키 스트레이트](https://www.acmicpc.net/problem/18406) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%9F%AD%ED%82%A4%20%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%9F%AD%ED%82%A4%20%EC%8A%A4%ED%8A%B8%EB%A0%88%EC%9D%B4%ED%8A%B8.js)
 - 문자열 재정렬 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9E%AC%EC%A0%95%EB%A0%AC.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%9E%AC%EC%A0%95%EB%A0%AC.js)
 - [문자열 압축 ](https://programmers.co.kr/learn/courses/30/lessons/60057) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%95%95%EC%B6%95.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EB%AC%B8%EC%9E%90%EC%97%B4%20%EC%95%95%EC%B6%95.js)
-- [자물쇠와 열쇠](https://programmers.co.kr/learn/courses/30/lessons/60059) : [Python]() || [JavaScript]()
+- [자물쇠와 열쇠](https://programmers.co.kr/learn/courses/30/lessons/60059) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EC%9E%90%EB%AC%BC%EC%87%A0%EC%99%80%20%EC%97%B4%EC%87%A0.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/2.%20%EA%B5%AC%ED%98%84/%EC%9E%90%EB%AC%BC%EC%87%A0%EC%99%80%20%EC%97%B4%EC%87%A0.js)
 
 
 ## 3. DFS/BFS
 - [특정 거리의 도시 찾기](https://www.acmicpc.net/problem/18352) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%ED%8A%B9%EC%A0%95%20%EA%B1%B0%EB%A6%AC%EC%9D%98%20%EB%8F%84%EC%8B%9C%20%EC%B0%BE%EA%B8%B0.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%ED%8A%B9%EC%A0%95%20%EA%B1%B0%EB%A6%AC%EC%9D%98%20%EB%8F%84%EC%8B%9C%20%EC%B0%BE%EA%B8%B0.js)
 - [연구소](https://www.acmicpc.net/problem/14502) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EC%97%B0%EA%B5%AC%EC%86%8C.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EC%97%B0%EA%B5%AC%EC%86%8C.js)
 - [경쟁적 전염](https://www.acmicpc.net/problem/18405) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EA%B2%BD%EC%9F%81%EC%A0%81%20%EC%A0%84%EC%97%BC.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EA%B2%BD%EC%9F%81%EC%A0%81%20%EC%A0%84%EC%97%BC.js)
-- [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058) : [Python]() || [JavaScript]()
+- [괄호 변환](https://programmers.co.kr/learn/courses/30/lessons/60058) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EA%B4%84%ED%98%B8%20%EB%B3%80%ED%99%98.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/3.%20DFSBFS/%EA%B4%84%ED%98%B8%20%EB%B3%80%ED%99%98.js)
 
 
 ## 4. 정렬
 - [국영수](https://www.acmicpc.net/problem/10825) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EA%B5%AD%EC%98%81%EC%88%98.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EA%B5%AD%EC%98%81%EC%88%98.js)
 - [안테나](https://www.acmicpc.net/problem/18310) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%95%88%ED%85%8C%EB%82%98.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%95%88%ED%85%8C%EB%82%98.js)
 - [실패율](https://programmers.co.kr/learn/courses/30/lessons/42889) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%8B%A4%ED%8C%A8%EC%9C%A8.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%8B%A4%ED%8C%A8%EC%9C%A8.js)
-- [카드 정렬하기](https://www.acmicpc.net/problem/1715) : [Python]() || [JavaScript]()
+- [카드 정렬하기](https://www.acmicpc.net/problem/1715) : [Python](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%B9%B4%EB%93%9C%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/4.%20%EC%A0%95%EB%A0%AC/%EC%B9%B4%EB%93%9C%20%EC%A0%95%EB%A0%AC%ED%95%98%EA%B8%B0.js)
 
 
 ## 5. 이진 탐색
 - 정렬된 배열에서 특정 수의 개수 구하기 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/5.%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EC%A0%95%EB%A0%AC%EB%90%9C%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%ED%8A%B9%EC%A0%95%20%EC%88%98%EC%9D%98%20%EA%B0%9C%EC%88%98%20%EA%B5%AC%ED%95%98%EA%B8%B0.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/5.%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EC%A0%95%EB%A0%AC%EB%90%9C%20%EB%B0%B0%EC%97%B4%EC%97%90%EC%84%9C%20%ED%8A%B9%EC%A0%95%20%EC%88%98%EC%9D%98%20%EA%B0%9C%EC%88%98%20%EA%B5%AC%ED%95%98%EA%B8%B0.js)
 - 고정점 찾기 : [Python](https://github.com/jkpark104/js-codingTest/blob/main/5.%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EA%B3%A0%EC%A0%95%EC%A0%90%20%EC%B0%BE%EA%B8%B0.py) || [JavaScript](https://github.com/jkpark104/js-codingTest/blob/main/5.%20%EC%9D%B4%EC%A7%84%20%ED%83%90%EC%83%89/%EA%B3%A0%EC%A0%95%EC%A0%90%20%EC%B0%BE%EA%B8%B0.js)
 - [공유기 설치](https://www.acmicpc.net/problem/2110) : Python || JavaScript
+- [가사 검색](https://programmers.co.kr/learn/courses/30/lessons/60060) : Python || JavaScript
 
 
 ## 6. DP
