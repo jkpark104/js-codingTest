@@ -34,20 +34,16 @@ console.log(solution([
 ], 25))
 
 function solution(nums, m) {
-  function dfs(k, sum) {
-    if (sum[1] > m) return
+  function dfs(k, time, score) {
     if (k === n) {
-      ans = Math.max(ans, sum[0])
+      if (time <= m) ans = Math.max(ans, score)
     } else {
-      sum = [...sum]
-      dfs(k + 1, sum)
-      sum[0] += nums[k][0]
-      sum[1] += nums[k][1]
-      dfs(k + 1, sum)
+      dfs(k + 1, time + nums[k][1], score + nums[k][0])
+      dfs(k + 1, time, score)
     }
   }
   const n = nums.length
   let ans = 0
-  dfs(0, [0, 0])
+  dfs(0, 0, 0)
   return ans
 }

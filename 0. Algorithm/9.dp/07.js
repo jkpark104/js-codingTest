@@ -1,17 +1,15 @@
 'use strict'
 
 function solution(nums, m) {
-  const dp = new Array(21).fill(0)
+  const n = nums.length
+  const dp = new Array(m + 1).fill(0)
 
-  for (let [w, c] of nums) {
-    for (let i = m; i > 0; i--) {
-      if (i - c >= 0) {
-        dp[i] = Math.max(dp[i - c] + w, dp[i])
-      }
+  for (let [score, time] of nums) {
+    for (let i = m; i >= time; i--) {
+      dp[i] = Math.max(dp[i], dp[i - time] + score)
     }
   }
-
-  console.log(dp.slice(0, m + 1))
+  console.log(dp)
   return dp[m]
 }
 // 문제는 1개 씩만 풀 수 있음 -> 뒤에서 옴

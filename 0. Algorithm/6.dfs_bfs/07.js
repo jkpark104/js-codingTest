@@ -23,22 +23,18 @@ console.log(solution(3, 2))
 function solution(n, m) {
   function dfs(k) {
     if (k === m) {
-      ans.push([...tmp])
+      ans.push(selected.slice())
     } else {
       for (let i = 1; i < n + 1; i++) {
-        // if (!chk[i]) {
-          tmp.push(i)
-          chk[i] = 1
-          dfs(k + 1)
-          tmp.pop()
-          // chk[i] = 0
-        // }
+        selected.push(i)
+        dfs(k + 1)
+        selected.pop()
       }
     }
   }
-  const chk = new Array(n + 1).fill(0)
-  const ans = []
-  const tmp = []
+  let ans = []
+  let selected = []
   dfs(0)
   return ans
 }
+

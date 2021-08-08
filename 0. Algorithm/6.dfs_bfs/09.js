@@ -1,15 +1,13 @@
 "use strict"
 
 function solution(n, r) {
-  function dfs(n, r) {
+  function com(n, r) {
     if (dp[n][r]) return dp[n][r]
     if (n === r || r === 0) return 1
-    else {
-      return dp[n][r] = dfs(n - 1, r - 1) + dfs(n - 1, r)
-    }
+    return dp[n][r] = com(n - 1, r - 1) + com(n - 1, r)
   }
   const dp = new Array(n + 1).fill().map(() => new Array(r + 1).fill(0))
-  return dfs(n, Math.min(r, n - r))
+  return com(n, r)
 }
 
 console.log(solution(5, 3))

@@ -1,3 +1,5 @@
+'use strict'
+
 function solution(s1, s2) {
   s1 = s1.split('')
   s2 = s2.split('')
@@ -29,3 +31,7 @@ function solution(s1, s2) {
 
 console.log(solution('BAOBAB', 'BACBA'))
 console.log(solution('AABAB', 'BABB'))
+
+// 대각선 편집
+// 위쪽 삭제
+// 왼쪽 추가

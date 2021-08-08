@@ -18,7 +18,7 @@ function solution(nums) {
       }
     }
     if (prev === nums.length) flag = false
-    // 이전의 배열과 길이가 같으면 충돌하지 않았으므로 while 탈출
+    // 이전의 배열과 길이가 같으면 충돌하지 않은 것이므로 while 탈출
     prev = nums.length
   }
   return nums

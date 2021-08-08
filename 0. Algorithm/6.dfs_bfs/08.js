@@ -23,22 +23,23 @@ console.log(solution([3, 6, 9], 2))
 function solution(nums, m) {
   function dfs(k) {
     if (k === m) {
-      ans.push([...tmp])
+      ans.push(selected.slice())
     } else {
-      for (let i = 0; i < nums.length; i++) {
+      for (let i = 0; i < n; i++) {
         if (!chk[i]) {
+          selected.push(nums[i])
           chk[i] = 1
-          tmp.push(nums[i])
           dfs(k + 1)
+          selected.pop()
           chk[i] = 0
-          tmp.pop()
         }
       }
     }
   }
-  const chk = new Array(m + 1).fill(0)
+  const n = nums.length
   const ans = []
-  const tmp = []
+  const selected = []
+  const chk = new Array(n).fill(0)
   dfs(0)
   return ans
 }

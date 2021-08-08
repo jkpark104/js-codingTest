@@ -12,7 +12,7 @@ function solution(nums, k) {
     ans = Math.max(ans, end - start)
     // ans를 최댓값으로 갱신해줌
     if (nums[start] === 0) k += 1
-    // 배열에서 0이었던 것을 지나지 않으므로 k 한도 늘려줌
+    // 배열에서 0이었던 것을 빠져 나왔으니 k 한도 늘려줌
   }
   return ans
 }
