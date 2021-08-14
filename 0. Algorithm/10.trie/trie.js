@@ -4,6 +4,7 @@ class Node {
     this.child = {}
   }
 }
+
 class Trie {
   constructor() {
     this.root = new Node();

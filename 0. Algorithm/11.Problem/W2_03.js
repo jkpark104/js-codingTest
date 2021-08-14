@@ -5,7 +5,7 @@ function solution(nums, k) {
   let ans = 0
   for (let start = 0; start < n; start++) {
     while (end < n && (k > 0 || nums[end] === 1)) {
-      // k 한도 내에서 0을 뛰어넘어 슬라이딩 할 수 있음 ; 사과 먹기 문제와 유사함
+      // k 한도 내에서 0을 뛰어넘어 슬라이딩 할 수 있음
       if (nums[end] === 0) k -= 1
       end += 1
     }

@@ -1,16 +1,14 @@
 function solution(t, coins) {
   const dp = new Array(t + 1).fill(0)
-
   dp[0] = 1
+
   for (let [coin, num] of coins) {
-    for (let i = t; i > 0; i--) {
+    for (i = t; i >= coin; i--) {
+      let val = i
       let cnt = num
-      let now = i
       while (cnt > 0) {
-        if (now - coin >= 0) {
-          dp[i] += dp[now - coin]
-          now -= coin
-        }
+        val -= coin
+        if (val >= 0) dp[i] += dp[val]
         cnt -= 1
       }
     }
@@ -26,3 +24,4 @@ console.log(solution(20, [
   [10, 2],
   [1, 5],
 ]))
+
