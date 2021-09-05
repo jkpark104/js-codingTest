@@ -1,3 +1,4 @@
+'use strict'
 function solution(s1, s2) {
   const nums = [0, 0]
 

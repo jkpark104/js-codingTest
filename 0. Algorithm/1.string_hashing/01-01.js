@@ -15,6 +15,7 @@ function solution(s) {
 const input_data = [
   '100001111',
   '10010111100',
+  '0110010'
 ]
 
 for (let data of input_data) {

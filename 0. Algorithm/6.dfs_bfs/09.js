@@ -2,6 +2,7 @@
 
 function solution(n, r) {
   function com(n, r) {
+    console.log(n, r)
     if (dp[n][r]) return dp[n][r]
     if (n === r || r === 0) return 1
     return dp[n][r] = com(n - 1, r - 1) + com(n - 1, r)
@@ -11,4 +12,4 @@ function solution(n, r) {
 }
 
 console.log(solution(5, 3))
-console.log(solution(33, 19))
+// console.log(solution(33, 19))
