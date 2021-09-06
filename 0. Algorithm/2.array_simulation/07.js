@@ -1,3 +1,5 @@
+'use strict'
+
 function solution(nums) {
   const ans = []
   const rMin = []

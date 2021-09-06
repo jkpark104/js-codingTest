@@ -1,12 +1,10 @@
 function solution(nums, m) {
-  for (m; m > 0; m--) {
-    // let tmp = []
-    for (let i = 1; i < nums.length; i++) {
-      // tmp.push(nums[i] - nums[i - 1])
-      nums[i - 1] = nums[i] - nums[i - 1]
+  while (m > 0) {
+    for (let i = 0; i < nums.length; i++) {
+      nums[i] = nums[i+1] - nums[i]
     }
-    // nums = tmp
     nums.pop()
+    m -= 1
   }
   return nums
 }
@@ -23,3 +21,4 @@ const input_data = [
 for (let data of input_data) {
   console.log(solution(data[0], data[1]))
 }
+

@@ -1,40 +1,40 @@
 "use strict"
 
-function solution(nums) {
-  // const ans = []
-  let answer = 0
-  const n = nums.length
-  const dx = [1, 0, -1, 0]
-  const dy = [0, 1, 0, -1]
+// function solution(nums) {
+//   // const ans = []
+//   let answer = 0
+//   const n = nums.length
+//   const dx = [1, 0, -1, 0]
+//   const dy = [0, 1, 0, -1]
 
-  for (let a = 0; a < n; a++) {
-    for (let b = 0; b < n; b++) {
-      const [x, y] = [a, b]
-      // let maxVal = nums[x][y]
-      let flag = true
-      for (let i = 0; i < 4; i++) {
-        const [nx, ny] = [x + dx[i], y + dy[i]]
-        // if (0 <= nx && nx < n && 0 <= ny && ny < n) {
-        //   maxVal = Math.max(maxVal, nums[nx][ny])
-        // }
-        if (0 <= nx && nx < n && 0 <= ny && ny < n && nums[nx][ny] > nums[x][y]) {
-          flag = false
-          break
-        }
-      }
-      if (flag) answer += 1
-      // if (nums[a][b] !== maxVal) {
-      //   nums[a][b] = 0
-      // }
-    }
-  }
-  return answer
-  // return nums.reduce((acc, cur) => {
-  //   acc += cur.filter(x => x > 0).length
-  //   return acc
-  // }, 0)
-  // 변수 카운팅해서 +=1로 해야됨 배열 탐색은 줄일 수록 좋음
-}
+//   for (let a = 0; a < n; a++) {
+//     for (let b = 0; b < n; b++) {
+//       const [x, y] = [a, b]
+//       // let maxVal = nums[x][y]
+//       let flag = true
+//       for (let i = 0; i < 4; i++) {
+//         const [nx, ny] = [x + dx[i], y + dy[i]]
+//         // if (0 <= nx && nx < n && 0 <= ny && ny < n) {
+//         //   maxVal = Math.max(maxVal, nums[nx][ny])
+//         // }
+//         if (0 <= nx && nx < n && 0 <= ny && ny < n && nums[nx][ny] > nums[x][y]) {
+//           flag = false
+//           break
+//         }
+//       }
+//       if (flag) answer += 1
+//       // if (nums[a][b] !== maxVal) {
+//       //   nums[a][b] = 0
+//       // }
+//     }
+//   }
+//   return answer
+//   // return nums.reduce((acc, cur) => {
+//   //   acc += cur.filter(x => x > 0).length
+//   //   return acc
+//   // }, 0)
+//   // 변수 카운팅해서 +=1로 해야됨 배열 탐색은 줄일 수록 좋음
+// }
 
 const input_data = [
   [
@@ -48,4 +48,25 @@ const input_data = [
 
 for (let data of input_data) {
   console.log(solution(data))
+}
+
+function solution(nums) {
+  const n = nums.length
+  let ans = 0
+
+  const dx = [1, 0, -1, 0]
+  const dy = [0, 1, 0, -1]
+  for (let i = 0; i < n; i++) {
+    for (let j = 0; j < n; j++) {
+      let val = 0
+      for (let k = 0; k < 4; k++) {
+        const [nx, ny] = [i + dx[k], j + dy[k]]
+        if (0 <= nx && nx < n && 0 <= ny && ny < n) {
+          val = Math.max(val, nums[nx][ny])
+        }
+      }
+      if (nums[i][j] > val) ans +=1
+    }
+  }
+  return ans
 }

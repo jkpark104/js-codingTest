@@ -1,25 +1,25 @@
-// function solution(nums) {
-//   let ans = 0
-//   let height = [1 , 1]
+'use strict'
 
-//   for (let i = 1; i < nums.length; i++) {
-//     if (nums[i - 1] < nums[i]) {
-//       height[0] += 1
-//     } else {
-//       ans = Math.max(ans, height[0])
-//       height[0] = 1
-//     }
-
-//     if (nums[i - 1] > nums[i]) {
-//       height[1] += 1
-//     } else {
-//       ans = Math.max(ans, height[1])
-//       height[1] = 1
-//     }
-//   }
-//   ans = Math.max(ans, ...height)
-//   return ans
-// }
+function solution(nums) {
+  let ans = 0
+  let height = [0, 0]
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i - 1] - nums[i] > 0) {
+      ans = Math.max(height[1], ans)
+      height[1] = 0
+      height[0] += 1
+    } else if (nums[i - 1] - nums[i] < 0) {
+      ans = Math.max(height[0], ans)
+      height[0] = 0
+      height[1] += 1
+    } else {
+      ans = Math.max(ans, ...height)
+      height = [0, 0]
+    }
+  }
+  ans = Math.max(ans, ...height)
+  return ans + 1
+}
 
 const input_data = [
   [5, 3, 6, 7, 9, 8, 5, 3, 1, 2],
@@ -31,25 +31,3 @@ for (let data of input_data) {
   console.log(solution(data))
 }
 
-function solution(nums) {
-  let ans = 0
-  let height = [1, 1]
-
-  for (let i = 0; i < nums.length - 1; i++) {
-    if (nums[i] < nums[i + 1]) {
-      ans = Math.max(ans, height[1])
-      height[0] += 1
-      height[1] = 1
-    } else if (nums[i] > nums[i + 1]) {
-      ans = Math.max(ans, height[0])
-      height[0] = 1
-      height[1] += 1
-    } else {
-      ans = Math.max(ans, ...height)
-      height[0] = 1
-      height[1] = 1
-    }
-  }
-  ans = Math.max(ans, ...height)
-  return ans
-}
