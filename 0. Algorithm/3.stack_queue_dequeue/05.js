@@ -1,25 +1,20 @@
-"use strict"
-
 function solution(n, k) {
-  const q = new Array(n).fill().map((el, idx) => idx + 1)
-
-  let i = 1
+  const q = new Array(n).fill().map((el, i) => i + 1);
+  let currentNumber = 0;
   while (q.length !== 1) {
-    const now = q.shift()
-    if (i === k) {
-      i = 1
+    currentNumber += 1;
+    if (currentNumber === k) {
+      q.shift();
+      currentNumber = 0;
     } else {
-      i += 1
-      q.push(now)
+      q.push(q.shift());
     }
   }
-  return q[0]
+  return q[0];
 }
 
-const input_data = [
-  [8, 3],
-]
+const inputData = [[8, 3]];
 
-for (let data of input_data) {
-  console.log(solution(data[0], data[1]))
+for (const data of inputData) {
+  console.log(solution(data[0], data[1]));
 }

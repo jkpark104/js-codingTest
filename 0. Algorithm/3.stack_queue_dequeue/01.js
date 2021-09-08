@@ -1,28 +1,19 @@
-"use strict"
-
 function solution(s) {
-  s = s.split('')
+  const stack = [];
 
-  const stack = []
-  for (let str of s) {
+  for (const str of s) {
     if (str === '(') {
-      stack.push(1)
+      stack.push(1);
     } else {
-      if (!stack.length) return 'NO'
-      stack.pop()
+      if (stack.length === 0) return 'NO';
+      stack.pop();
     }
   }
-  return !stack.length ? 'YES' : 'NO'
+  return stack.length ? 'NO' : 'YES';
 }
 
-const input_data = [
-  '(()(()))(()',
-  '()()',
-  '(())()',
-  ')()(',
-  '(()(',
-]
+const inputData = ['(()(()))(()', '()()', '(())()', ')()(', '(()('];
 
-for (let data of input_data) {
-  console.log(solution(data))
+for (const data of inputData) {
+  console.log(solution(data));
 }
