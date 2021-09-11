@@ -1,22 +1,26 @@
 function solution(n) {
-  let ans = 0
-  let cnt = 1
-  n -= cnt
-  while (n > 0) {
-    cnt += 1
-    n -= cnt
-    if (!(n % cnt)) ans += 1
+  let number = n;
+  let count = 1;
+  let ans = 0;
+
+  number -= count;
+
+  while (number > 0) {
+    count += 1;
+    if (number % count === 0) ans += 1;
+    number -= count;
   }
-  return ans
+
+  return ans;
 }
 
-const input_data = [
+const inputData = [
   15,
   45678,
   98765,
   7,
-]
+];
 
-for (let data of input_data) {
-  console.log(solution(data))
+for (const data of inputData) {
+  console.log(solution(data));
 }

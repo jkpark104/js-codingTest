@@ -1,23 +1,19 @@
-"use strict"
-
 function solution(nums, k) {
-  const n = nums.length
-
-  let ans = 0
-  let end = 0
-  let sum = 0
-  for (let start = 0; start < n; start++) {
-    while (end < n && (end - start) < k) {
-      sum += nums[end]
-      end += 1
+  let ans = 0;
+  let sum = 0;
+  let end = 0;
+  for (let start = 0; start < nums.length; start++) {
+    while (end < nums.length && end - start < k) {
+      sum += nums[end];
+      end += 1;
     }
-    ans = Math.max(ans, sum)
-    sum -= nums[start]
+    ans = Math.max(ans, sum);
+    sum -= nums[start];
   }
-  return ans
+  return ans;
 }
 
-const input_data = [
+const inputData = [
   [
     [12, 15, 11, 20, 25, 10, 20, 19, 13, 15], 3
   ],
@@ -29,6 +25,6 @@ const input_data = [
   ],
 ]
 
-for (let data of input_data) {
+for (const data of inputData) {
   console.log(solution(data[0], data[1]))
 }

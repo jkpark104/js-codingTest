@@ -1,20 +1,18 @@
-"use strict"
+// function solution(nums, m) {
+//   const hash = new Map()
 
-function solution(nums, m) {
-  const hash = new Map()
-
-  let sum = 0
-  let ans = 0
-  for (let num of nums) {
-    sum += num
-    if (sum === m) ans += 1
-    if (hash.has(sum - m)) {
-      ans += hash.get(sum - m)
-    }
-    hash.set(sum, hash.get(sum) + 1 || 1)
-  }
-  return ans
-}
+//   let sum = 0
+//   let ans = 0
+//   for (const num of nums) {
+//     sum += num
+//     if (sum === m) ans += 1
+//     if (hash.has(sum - m)) {
+//       ans += hash.get(sum - m)
+//     }
+//     hash.set(sum, hash.get(sum) + 1 || 1)
+//   }
+//   return ans
+// }
 
 // 1 1개 ans 0
 // 3 1개 ans 1
@@ -23,7 +21,22 @@ function solution(nums, m) {
 // 4 1개 ans 4
 // 6 2개 ans 6
 
-const input_data = [
+function solution(nums, m) {
+  let ans = 0;
+  const hash = {};
+
+  let sum = 0;
+  for (let i = 0; i < nums.length; i++) {
+    sum += nums[i];
+    if (sum === m) ans += 1;
+    if (hash[sum - m]) ans += hash[sum - m];
+    hash[sum] = hash[sum] + 1 || 1;
+  }
+
+  return ans;
+}
+
+const inputData = [
   [
     [1, 2, 3, -3, 1, 2], 3
   ],
@@ -35,6 +48,6 @@ const input_data = [
   ],
 ]
 
-for (let data of input_data) {
-  console.log(solution(data[0], data[1], data[0].length))
+for (const data of inputData) {
+  console.log(solution(data[0], data[1]))
 }
