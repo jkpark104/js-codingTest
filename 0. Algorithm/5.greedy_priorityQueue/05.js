@@ -1,5 +1,3 @@
-"use strict"
-
 // function solution(nums, m) {
 //   nums = nums.sort((a, b) => a - b)
 
@@ -15,6 +13,10 @@
 //   console.log(nums, start, end)
 //   return nums[end] - nums[start]
 // }
+
+function solution(nums, m) {
+  
+}
 
 console.log(solution([1, 2, 3, 4, 5, 6], 8))
 console.log(solution([2, 1, 3, 7, 5], 2))

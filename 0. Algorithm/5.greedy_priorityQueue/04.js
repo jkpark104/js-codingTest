@@ -1,6 +1,4 @@
-"use strict"
-
-class maxHeap {
+class MaxHeap {
   constructor() {
     this.heap = []
     this.heap.push(Number.MAX_SAFE_INTEGER)
@@ -13,9 +11,9 @@ class maxHeap {
 
   upheap(pos) {
     const tmp = this.heap[pos]
-    while (tmp > this.heap[parseInt(pos / 2)]) {
-      this.heap[pos] = this.heap[parseInt(pos / 2)]
-      pos = parseInt(pos / 2)
+    while (tmp > this.heap[Math.floor(pos / 2)]) {
+      this.heap[pos] = this.heap[Math.floor(pos / 2)]
+      pos = Math.floor(pos / 2)
     }
     this.heap[pos] = tmp
   }
@@ -31,7 +29,7 @@ class maxHeap {
   downheap(pos, len) {
     const tmp = this.heap[1]
     let child
-    while (pos <= parseInt(len / 2)) {
+    while (pos <= Math.floor(len / 2)) {
       child = pos * 2
       if (child < len && this.heap[child] < this.heap[child + 1]) child += 1
       if (tmp >= this.heap[child]) break
@@ -53,16 +51,16 @@ class maxHeap {
 }
 
 function solution(nums) {
-  let maxH = new maxHeap()
-  for (let x of nums) {
-    maxH.insert(x)
+  const heap = new MaxHeap();
+  for (const num of nums) heap.insert(num);
+
+  while (heap.size() > 1) {
+    const x = heap.get()
+    const y = heap.get()
+
+    if (x !== y) heap.insert(x - y);
   }
-  while (maxH.size() > 1) {
-    const y = maxH.get()
-    const x = maxH.get()
-    if (x !== y) maxH.insert(y - x)
-  }
-  return maxH.size()
+  return heap.size();
 }
 
 console.log(solution([5, 2, 4, 3, 1]))

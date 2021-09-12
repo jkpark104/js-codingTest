@@ -1,6 +1,4 @@
-"use strict"
-
-class maxHeap {
+class MaxHeap {
   constructor() {
     this.heap = []
     this.heap.push(Number.MAX_SAFE_INTEGER)
@@ -13,9 +11,9 @@ class maxHeap {
 
   upheap(pos) {
     const tmp = this.heap[pos]
-    while (tmp > this.heap[parseInt(pos / 2)]) {
-      this.heap[pos] = this.heap[parseInt(pos / 2)]
-      pos = parseInt(pos / 2)
+    while (tmp > this.heap[Math.floor(pos / 2)]) {
+      this.heap[pos] = this.heap[Math.floor(pos / 2)]
+      pos = Math.floor(pos / 2)
     }
     this.heap[pos] = tmp
   }
@@ -31,7 +29,7 @@ class maxHeap {
   downheap(pos, len) {
     const tmp = this.heap[1]
     let child
-    while (pos <= parseInt(len / 2)) {
+    while (pos <= Math.floor(len / 2)) {
       child = pos * 2
       if (child < len && this.heap[child] < this.heap[child + 1]) child += 1
       if (tmp >= this.heap[child]) break
@@ -51,6 +49,10 @@ class maxHeap {
     }
   }
 }
+
+// function solution(nums) {
+//   const heap = new MaxHeap();
+// }
 
 // function solution(nums) {
 //   nums.sort((a, b) => (b[1] - a[1] || b[0] - a[0]))
@@ -83,17 +85,17 @@ console.log(solution([
   [10, 1],
 ]))
 
-function solution(nums) {
-  const hash = new maxHeap()
-  nums.sort((a, b) => a[1] - b[1] || a[0] - b[0])
+// function solution(nums) {
+//   const hash = new maxHeap()
+//   nums.sort((a, b) => a[1] - b[1] || a[0] - b[0])
 
-  let maxDay = nums[nums.length - 1][1]
-  let ans = 0
-  for (let i = maxDay; i > 0; i--) {
-    while (nums.length && nums[nums.length - 1][1] === i) {
-      hash.insert(nums.pop()[0])
-    }
-    if (hash.size()) ans += hash.get()
-  }
-  return ans
-}
+//   const maxDay = nums[nums.length - 1][1]
+//   let ans = 0
+//   for (let i = maxDay; i > 0; i--) {
+//     while (nums.length && nums[nums.length - 1][1] === i) {
+//       hash.insert(nums.pop()[0])
+//     }
+//     if (hash.size()) ans += hash.get()
+//   }
+//   return ans
+// }
