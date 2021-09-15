@@ -1,37 +1,19 @@
-"use strict"
-
-// function solution(n) {
-//   const ans = []
-
-//   function dfs(k, selected) {
-//     ans.push(selected)
-//     for (let i = selected[k] + 1; i < n + 1; i++) {
-//       dfs(k + 1, [...selected, i])
-//     }
-//   }
-
-//   for (let i = 1; i < n + 1; i++) {
-//     dfs(0, [i])
-//   }
-//   return ans
-// }
-
-console.log(solution(3))
-
 function solution(n) {
-  let answer = [];
-  let part = [];
+  const numbStorage = [];
+  const answer = [];
 
-  function DFS(L) {
+  function dfs(L, n) {
     if (L === n + 1) {
-      if (part.length !== 0) answer.push(part.slice());
+      if (numbStorage.length) answer.push([...numbStorage]);
     } else {
-      part.push(L);
-      DFS(L + 1);
-      part.pop();
-      DFS(L + 1);
+      numbStorage.push(L);
+      dfs(L+1, n);
+      numbStorage.pop()
+      dfs(L+1, n);
     }
   }
-  DFS(1);
+  dfs(1, n);
   return answer;
 }
+
+console.log(solution(3));

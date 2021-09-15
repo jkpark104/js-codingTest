@@ -1,16 +1,17 @@
-"use strict"
-
 function solution(n) {
-  return dfs(n, [])
-}
+  const numbStorage = [];
 
-console.log(solution(11))
-
-function dfs(n, array) {
-  if (n === 1) {
-    array.push(n)
-    return array.reverse().join('')
+  function dfs(number) {
+    if (number <= 1) {
+      numbStorage.push(number);
+    } else {
+      dfs(Math.floor(number / 2));
+      numbStorage.push(number % 2);
+    }
   }
-  array.push(n % 2)
-  return dfs(parseInt(n / 2), array)
+  dfs(n);
+  
+  return parseInt(numbStorage.join(''), 10);
 }
+
+console.log(solution(11));
