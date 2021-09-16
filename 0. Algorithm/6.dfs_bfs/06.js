@@ -1,20 +1,13 @@
-"use strict"
-
 // function solution(nums, m) {
-//   let ans = 0
-
-//   function dfs(k, selected) {
-//     const val = selected.reduce((acc, cur) => {
-//       acc[0] += cur[0]
-//       acc[1] += cur[1]
-//       return acc
-//     }, [0, 0])
-//     if (val[1] <= m) ans = Math.max(ans, val[0])
-//     for (let i = k + 1; i < nums.length; i++) dfs(i, [...selected, nums[i]])
+//   function dfs(L, s, m) {
+//     if (L === s) {
+//       console.log(s);
+//     } else {
+//       dfs(L + 1, s + nums[L], m);
+//       dfs(L + 1, nums[L], m);
+//     }
 //   }
-
-//   for (let i = 0; i < nums.length; i++) dfs(i, [nums[i]])
-//   return ans
+//   dfs(0, 0, m);
 // }
 
 console.log(solution([
@@ -33,17 +26,17 @@ console.log(solution([
   [20, 7]
 ], 25))
 
-function solution(nums, m) {
-  function dfs(k, time, score) {
-    if (k === n) {
-      if (time <= m) ans = Math.max(ans, score)
-    } else {
-      dfs(k + 1, time + nums[k][1], score + nums[k][0])
-      dfs(k + 1, time, score)
-    }
-  }
-  const n = nums.length
-  let ans = 0
-  dfs(0, 0, 0)
-  return ans
-}
+// function solution(nums, m) {
+//   function dfs(k, time, score) {
+//     if (k === n) {
+//       if (time <= m) ans = Math.max(ans, score)
+//     } else {
+//       dfs(k + 1, time + nums[k][1], score + nums[k][0])
+//       dfs(k + 1, time, score)
+//     }
+//   }
+//   const n = nums.length
+//   let ans = 0
+//   dfs(0, 0, 0)
+//   return ans
+// }
