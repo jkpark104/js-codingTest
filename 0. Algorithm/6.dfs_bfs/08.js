@@ -1,45 +1,25 @@
-"use strict"
-
-// function solution(nums, m) {
-//   function dfs(k, selected) {
-//     if (k === m - 1) {
-//       ans.push(selected)
-//       return
-//     }
-//     for (let i = 0; i < nums.length; i++) {
-//       if (!selected.includes(nums[i])) {
-//         dfs(k + 1, [...selected, nums[i]])
-//       }
-//     }
-//   }
-
-//   const ans = []
-//   for (let i = 0; i < nums.length; i++) dfs(0, [nums[i]])
-//   return ans
-// }
-
-console.log(solution([3, 6, 9], 2))
-
 function solution(nums, m) {
-  function dfs(k) {
-    if (k === m) {
-      ans.push(selected.slice())
+  const chk = new Array(nums.length).fill(0);
+  const tmp = [];
+  const answer = [];
+
+  function dfs(L) {
+    if (L === m) {
+      answer.push([...tmp]);
     } else {
-      for (let i = 0; i < n; i++) {
+      for (let i = 0; i < nums.length; i++) {
         if (!chk[i]) {
-          selected.push(nums[i])
-          chk[i] = 1
-          dfs(k + 1)
-          selected.pop()
-          chk[i] = 0
+          chk[i] = 1;
+          tmp.push(nums[i]);
+          dfs(L + 1)
+          chk[i] = 0;
+          tmp.pop();
         }
       }
     }
   }
-  const n = nums.length
-  const ans = []
-  const selected = []
-  const chk = new Array(n).fill(0)
-  dfs(0)
-  return ans
+  dfs(0);
+  return answer;
 }
+
+console.log(solution([3, 6, 9], 2))
