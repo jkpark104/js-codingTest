@@ -1,39 +1,39 @@
 function solution(n, edges) {
-  function dfs(pos) {
-    if (pos === n) {
-      ans += 1
+  const graph = new Array(n + 1).fill().map(() => new Array(0));
+  const chk = new Array(n + 1).fill(0);
+
+  for (const [a, b] of edges) graph[a].push(b);
+
+  let ans = 0;
+  chk[1] = 1;
+
+  function dfs(now) {
+    if (now === 5) {
+      ans += 1;
     } else {
-      for (let next of graph[pos]) {
-        if (!chk[next]) {
-          chk[next] = true
-          dfs(next)
-          chk[next] = false
+      for (const next of graph[now]) {
+        if (chk[next] === 0) {
+          chk[next] = 1;
+          dfs(next);
+          chk[next] = 0;
         }
       }
     }
   }
-
-  const graph = new Array(n + 1).fill().map(() => new Array())
-  for (let [x, y] of edges) {
-    graph[x].push(y)
-  }
-
-  const chk = new Array(n + 1).fill(false)
-  chk[1] = true
-  let ans = 0
-  dfs(1)
-
-  return ans
+  dfs(1);
+  return ans;
 }
 
-console.log(solution(5, [
-  [1, 2],
-  [1, 3],
-  [1, 4],
-  [2, 1],
-  [2, 3],
-  [2, 5],
-  [3, 4],
-  [4, 2],
-  [4, 5],
-]))
+console.log(
+  solution(5, [
+    [1, 2],
+    [1, 3],
+    [1, 4],
+    [2, 1],
+    [2, 3],
+    [2, 5],
+    [3, 4],
+    [4, 2],
+    [4, 5]
+  ])
+);
