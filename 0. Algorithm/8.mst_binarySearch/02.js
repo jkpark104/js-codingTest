@@ -1,45 +1,45 @@
-'use strict'
-
 function solution(n, edges) {
-  function find_parent(x) {
-    if (x !== parent[x]) {
-      parent[x] = find_parent(parent[x])
-    }
-    return parent[x]
+  const parent = new Array(n + 1).fill().map((el, idx) => idx);
+
+  function findParent(x) {
+    if (x !== parent[x]) parent[x] = findParent(parent[x]);
+    return parent[x];
   }
 
-  function union_parent(a, b) {
-    a = find_parent(a)
-    b = find_parent(b)
-    if (a > b) parent[a] = b
-    else parent[b] = a
-  }
-  const parent = new Array(n + 1).fill().map((el, idx) => idx)
-  const len = edges.length
-  edges.sort((a, b) => b[2] - a[2])
+  function unionParent(a, b) {
+    const c = findParent(a);
+    const d = findParent(b);
 
-  let ans = 0
-  while (edges.length) {
-    const [a, b, span] = edges.pop()
-    if (find_parent(a) !== find_parent(b)) {
-      ans += span
-      union_parent(a, b)
-    }
+    if (c > d) parent[c] = d;
+    else parent[d] = c;
   }
-  return ans
+
+  edges.sort((a, b) => a[2] - b[2]);
+
+  return edges.reduce((acc, cur) => {
+    let _acc = acc;
+    const [a, b, cost] = cur;
+    if (findParent(a) !== findParent(b)) {
+      unionParent(a, b);
+      _acc += cost;
+    }
+    return _acc;
+  }, 0);
 }
 
-console.log(solution(9, [
-  [1, 2, 12],
-  [1, 9, 25],
-  [2, 3, 10],
-  [2, 8, 17],
-  [2, 9, 8],
-  [3, 4, 18],
-  [3, 7, 55],
-  [4, 5, 44],
-  [5, 6, 60],
-  [5, 7, 38],
-  [7, 8, 35],
-  [8, 9, 15],
-]))
+console.log(
+  solution(9, [
+    [1, 2, 12],
+    [1, 9, 25],
+    [2, 3, 10],
+    [2, 8, 17],
+    [2, 9, 8],
+    [3, 4, 18],
+    [3, 7, 55],
+    [4, 5, 44],
+    [5, 6, 60],
+    [5, 7, 38],
+    [7, 8, 35],
+    [8, 9, 15]
+  ])
+);
