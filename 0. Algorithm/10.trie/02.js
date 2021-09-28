@@ -1,32 +1,61 @@
 function solution(n, edges) {
-  const graph = new Array(n + 1).fill().map(() => new Array(n + 1).fill(100))
+  const INF = Number.MAX_SAFE_INTEGER;
+  const graph = new Array(n + 1).fill().map(() => new Array(n + 1).fill(INF));
 
   for (let i = 1; i < n + 1; i++) {
-    graph[i][i] = 0
+    graph[i][i] = 0;
   }
 
-  for (let [x, y, cost] of edges) {
-    graph[x][y] = cost
+  for (const [a, b, cost] of edges) {
+    graph[a][b] = Math.min(graph[a][b], cost);
   }
 
   for (let k = 1; k < n + 1; k++) {
     for (let a = 1; a < n + 1; a++) {
       for (let b = 1; b < n + 1; b++) {
-        graph[a][b] = Math.min(graph[a][b], graph[a][k] + graph[k][b])
+        graph[a][b] = Math.min(graph[a][b], graph[a][k] + graph[k][b]);
       }
     }
   }
-  
-  return graph
+  return graph.map(el =>
+    el.map(el => {
+      if (el === INF) return 'M';
+      return el;
+    })
+  );
 }
 
-console.log(solution(5, [
-  [1, 2, 6],
-  [1, 3, 3],
-  [3, 2, 2],
-  [2, 4, 1],
-  [2, 5, 13],
-  [3, 4, 5],
-  [4, 2, 3],
-  [4, 5, 7],
-]))
+console.log(
+  solution(5, [
+    [1, 2, 6],
+    [1, 3, 3],
+    [3, 2, 2],
+    [2, 4, 1],
+    [2, 5, 13],
+    [3, 4, 5],
+    [4, 2, 3],
+    [4, 5, 7]
+  ])
+);
+
+// function solution(n, edges) {
+//   const graph = new Array(n + 1).fill().map(() => new Array(n + 1).fill(100))
+
+//   for (let i = 1; i < n + 1; i++) {
+//     graph[i][i] = 0
+//   }
+
+//   for (let [x, y, cost] of edges) {
+//     graph[x][y] = cost
+//   }
+
+//   for (let k = 1; k < n + 1; k++) {
+//     for (let a = 1; a < n + 1; a++) {
+//       for (let b = 1; b < n + 1; b++) {
+//         graph[a][b] = Math.min(graph[a][b], graph[a][k] + graph[k][b])
+//       }
+//     }
+//   }
+
+//   return graph
+// }
