@@ -1,31 +1,26 @@
 function solution(nums, h) {
-  function getTime(mid) {
-    let cnt = 0
-    for (let num of nums) {
-      cnt += Math.ceil(num / mid)
-    }
-    return cnt
-    // 과자를 먹는 시간을 구하는 함수
+  function isValid(mid) {
+    let cnt = 0;
+    nums.forEach(el => {
+      if (el > mid) cnt += 2;
+      else cnt += 1;
+    });
+    return cnt <= h;
   }
 
-  function binarySearch(target) {
-    let start = 1
-    let end = 100000 // 과자 개수의 최댓값
+  let start = 1;
+  let end = 100000;
 
-    while (start <= end) {
-      let mid = parseInt((start + end) / 2)
+  let ans = 0;
+  while (start <= end) {
+    const mid = Math.floor((start + end) / 2);
 
-      if (getTime(mid) <= target) {
-        ans = mid
-        end = mid - 1
-      } else {
-        start = mid + 1
-      }
-    }
+    if (isValid(mid)) {
+      ans = mid;
+      end = mid - 1;
+    } else start = mid + 1;
   }
-  let ans = undefined
-  binarySearch(h)
-  return ans
+  return ans;
 }
 
-console.log(solution([29, 12, 24, 5, 19], 6))
+console.log(solution([29, 12, 24, 5, 19], 6));

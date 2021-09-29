@@ -1,23 +1,20 @@
 function solution(words) {
-  const sample = new Map()
+  const hash = {};
+  for (const str of words[0]) hash[str] = hash[str] + 1 || 1;
 
-  for (let str of words[0]) {
-    sample.set(str, sample.get(str) + 1 || 1)
-  }
-
-  const ans = []
-  for (let key of sample.keys()) {
-    let cnt = sample.get(key)
+  let ans = '';
+  for (const key of Object.keys(hash)) {
+    let cnt = hash[key];
     for (let i = 1; i < words.length; i++) {
-      cnt = Math.min(cnt, words[i].split('').filter(x => x === key).length)
-    }5
-    for (cnt; cnt > 0; cnt--) ans.push(key)
+      cnt = Math.min(cnt, words[i].split('').filter(el => el === key).length);
+    }
+    ans += key.repeat(cnt);
   }
-  return ans
+  return ans.split('');
 }
 
-console.log(solution(["steasue", "sasseysu", "kseseas"]));
-console.log(solution(["ackky", "kabck", "yokkcs"]));
+console.log(solution(['steasue', 'sasseysu', 'kseseas']));
+console.log(solution(['ackky', 'kabck', 'yokkcs']));
 
 // function solution(words) {
 //   let answer = [];
