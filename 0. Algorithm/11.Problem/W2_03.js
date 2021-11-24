@@ -10,6 +10,7 @@ function solution(nums, k) {
       if (nums[end] === 0) cnt -= 1;
       end += 1;
     }
+    console.log(start, end, end - start);
     // ans를 최댓값으로 갱신해줌
     ans = Math.max(ans, end - start);
     // 배열에서 0이었던 것을 빠져 나왔으니 k 한도 늘려줌

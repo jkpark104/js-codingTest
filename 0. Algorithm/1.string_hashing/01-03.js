@@ -1,14 +1,10 @@
-'use strict'
 function solution(s) {
-  const array = []
-  s = s.split('')
+  const ans = [];
 
-  array.push(s.join(''))
-  while (s.length > 1) {
-    s.shift()
-    array.push(s.join(''))
+  for (let i = 0; i < s.length; i++) {
+    ans.push(s.slice(i, s.length));
   }
-  return array.sort()
+  return ans.sort();
 }
 
-console.log(solution('kseaedu'))
+console.log(solution('kseaedu'));
