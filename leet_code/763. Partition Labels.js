@@ -2,24 +2,24 @@
  * @param {string} s
  * @return {number[]}
  */
-const intersect = (s1, s2) =>
-  s2.length === [...s2].filter(str => !s1.includes(str)).length;
+
+const intersection = (one, other) =>
+  one.length === [...one].filter(el => !other.includes(el)).length;
 
 const partitionLabels = s => {
-  const n = s.length;
-
-  const res = [];
+  const ans = [];
 
   let start = 0;
-  for (let end = 1; end <= n; end++) {
-    const one = s.slice(end, n);
-    const other = s.slice(start, end);
-    if (intersect(one, other)) {
-      res.push(other.length);
+  for (let end = 1; end <= s.length; end++) {
+    const [left, right] = [s.slice(start, end), s.slice(end)];
+
+    if (intersection(left, right)) {
+      ans.push(left.length);
       start = end;
     }
   }
-  return res;
+
+  return ans;
 };
 
 console.log(partitionLabels('ababcbacadefegdehijhklij'));

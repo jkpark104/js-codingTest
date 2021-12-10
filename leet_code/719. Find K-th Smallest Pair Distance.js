@@ -3,33 +3,32 @@
  * @param {number} k
  * @return {number}
  */
-const isValid = (nums, mid, target) => {
+
+const isValid = (nums, k, mid) => {
+  let count = 0;
+
   let end = 0;
-  let cnt = 0;
   for (let start = 0; start < nums.length; start++) {
     while (end < nums.length && nums[end] - nums[start] <= mid) {
       end += 1;
     }
-    cnt += end - start - 1;
+
+    count += end - start - 1;
   }
-  // console.log(`cnt:${cnt}, mid:${mid}, target:${target}`);
-  return cnt >= target;
+
+  return count >= k;
 };
 
 const smallestDistancePair = (nums, k) => {
   nums.sort((a, b) => a - b);
-
   let start = 0;
   let end = 1e6;
 
   let ans = 0;
   while (start <= end) {
     let mid = Math.floor((start + end) / 2);
-    // console.log(`mid:${mid}`);
-    if (isValid(nums, mid, k)) {
-      ans = mid;
-      end = mid - 1;
-    } else start = mid + 1;
+
+    isValid(nums, k, mid) ? ([ans, end] = [mid, mid - 1]) : (start = mid + 1);
   }
 
   return ans;

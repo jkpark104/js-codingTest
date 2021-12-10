@@ -39,5 +39,6 @@ const letterCombinations = digits => {
 };
 
 console.log(letterCombinations(''));
-// console.log(letterCombinations('2'));
-// console.log(letterCombinations('234'));
+console.log(letterCombinations('23'));
+console.log(letterCombinations('2'));
+console.log(letterCombinations('234'));

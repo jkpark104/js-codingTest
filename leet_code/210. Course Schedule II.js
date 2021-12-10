@@ -4,31 +4,30 @@
  * @return {number[]}
  */
 const findOrder = (numCourses, prerequisites) => {
-  const graph = new Array(numCourses).fill().map(() => new Array(0));
+  const degrees = new Array(numCourses).fill(0);
 
-  const indegree = new Array(numCourses).fill(0);
+  const graph = new Array(numCourses + 1).fill().map(() => new Array(0));
 
   for (const [a, b] of prerequisites) {
+    degrees[a] += 1;
     graph[b].push(a);
-    indegree[a] += 1;
   }
 
-  const ans = [];
-
   const q = [];
-  for (let i = 0; i < numCourses; i++) if (!indegree[i]) q.push(i);
+  for (let i = 0; i < numCourses; i++) if (degrees[i] === 0) q.push(i);
 
+  const ans = [];
   while (q.length) {
     const now = q.shift();
     ans.push(now);
 
     for (const next of graph[now]) {
-      indegree[next] -= 1;
-      if (!indegree[next]) q.push(next);
+      degrees[next] -= 1;
+      if (degrees[next] === 0) q.push(next);
     }
   }
 
-  return indegree.reduce((acc, cur) => acc + cur, 0) ? [] : ans;
+  return degrees.reduce((acc, cur) => acc + cur, 0) === 0 ? ans : [];
 };
 
 // console.log(findOrder(2, [[1, 0]]));

@@ -3,26 +3,25 @@
  * @return {number}
  */
 const trap = height => {
-  const n = height.length;
-  const leftCol = [];
-  const rightCol = [];
-  let value = 0;
-  for (let i = 0; i < n; i++) {
-    value = Math.max(value, height[i]);
-    leftCol.push(value);
+  let h = 0;
+  const leftCol = new Array(height.length).fill(0);
+  for (let i = 0; i < height.length; i++) {
+    h = Math.max(h, height[i]);
+    leftCol[i] = h;
   }
-  value = 0;
-  for (let i = n - 1; i > -1; i--) {
-    value = Math.max(value, height[i]);
-    rightCol.unshift(value);
+  h = 0;
+  const rightCol = new Array(height.length).fill(0);
+  for (let i = height.length - 1; i > -1; i--) {
+    h = Math.max(h, height[i]);
+    rightCol[i] = h;
   }
 
   let ans = 0;
 
-  for (let i = 0; i < n; i++) {
-    const h = Math.min(leftCol[i], rightCol[i]);
-    ans += h - height[i];
+  for (let i = 0; i < height.length; i++) {
+    ans += Math.min(leftCol[i], rightCol[i]) - height[i];
   }
+
   return ans;
 };
 
